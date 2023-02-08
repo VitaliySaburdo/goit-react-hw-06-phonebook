@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import { Item, Button } from './RenderContactList.styled';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from '../../redux/selectors';
-import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/actions';
 
 export const RenderContacts = () => {

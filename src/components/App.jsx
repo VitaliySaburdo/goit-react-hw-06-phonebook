@@ -8,11 +8,7 @@ import PropTypes from 'prop-types';
 import { Container } from './App.styled';
 
 export function App() {
-
   const [filter, setFilter] = useState('');
-
-
-
 
   // const formSubmitHendler = ({ name, number }) => {
   //   const contact = {

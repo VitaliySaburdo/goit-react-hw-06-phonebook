@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import { Form, Input, Label, Button } from './ContactForm.styled';
 
