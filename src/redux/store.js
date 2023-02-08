@@ -1,5 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { createReducer } from '@reduxjs/toolkit';
+import { createReducer, createAction } from '@reduxjs/toolkit';
+
+const addContact = createAction('myReducer/addContact');
+const removeContact = createAction('myReducer/removeContact');
+
+console.log(addContact(100));
 
 const contactsInitialState = [
   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -8,7 +13,10 @@ const contactsInitialState = [
   { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
 ];
 
-const myReducer = createReducer(contactsInitialState, {});
+const myReducer = createReducer(contactsInitialState, {
+  [addContact]: (state, action) => state + action.payload,
+  [removeContact]: (state, action) => state + action.payload,
+});
 
 export const store = configureStore({
   reducer: {
