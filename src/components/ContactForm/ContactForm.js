@@ -11,8 +11,6 @@ export function ContactForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // console.log(name);
-    // console.log(number);
     dispatch(addContact(name, number));
     resetForm();
   };
