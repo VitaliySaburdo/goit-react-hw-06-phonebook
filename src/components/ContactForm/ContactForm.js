@@ -1,17 +1,28 @@
 import PropTypes from 'prop-types';
 import { Form, Input, Label, Button } from './ContactForm.styled';
 import { addContact } from 'redux/actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import { getContacts } from '../../redux/selectors';
 
 export function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
+
+  const isNameInContact = contacts.find(
+    contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase()
+  );
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(addContact(name, number));
+    if (isNameInContact) {
+      return alert(`${name} is already in contacts`);
+    } else {
+      dispatch(addContact(name, number));
+    }
+
     resetForm();
   };
 

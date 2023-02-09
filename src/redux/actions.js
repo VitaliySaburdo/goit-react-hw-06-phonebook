@@ -17,3 +17,10 @@ export const deleteContact = id => {
     payload: id,
   };
 };
+
+export const findContact = name => {
+  return {
+    type: 'myReducer/findContact',
+    payload: name,
+  };
+};
